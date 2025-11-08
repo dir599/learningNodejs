@@ -5,14 +5,23 @@ app.set('view engine','ejs')
 
 
 app.get('/',(req,res) =>{
-    const name = "Dirag Kasula"
-    const address = "Bhaktapur"
-    res.render('home.ejs', {data:name,address})
-})
-app.get('/about',(req,res) =>{
-    res.render('about.ejs')
+    
+    res.render('home.ejs',)
 })
 
-app.listen(3000,()=>{
-    console.log("Project has started in port 3000.")
+app.get('/register',(req,res)=>{
+    res.render('auth/register.ejs')
+})
+
+app.get('/login',(req,res)=>{
+    res.render('auth/login.ejs')
+})
+
+
+
+app.use(express.static('public/css/'))
+
+const Port = 3000
+app.listen(Port ,()=>{
+    console.log("Project has started in port"+ Port)
 })
